@@ -1,5 +1,5 @@
 async function loadBooks() {
-    let response = await fetch('http://localhost:3000');
+    let response = await fetch('http://localhost:3000/books');
 
     console.log(response.status);
     console.log(response.statusText);
@@ -24,8 +24,19 @@ async function loadBooks() {
                             <hr>
 
                             <button type="button" class="btn btn-danger">Delete</button>
-                            <button types="button" class="btn btn-primary" data-toggle="modal">Edit</button>
+                            <button types="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#editBookModal" onClick="setEditModal(${book,isbn})">
+                                Edit
+                            </button>
+                        </div>
+                    </div>
+                </div>
             `
+
+            document.getElementById('books').innerHTML = document.getElementById('books').innerHTML + x;
         }
     }
 }
+
+
+loadBooks();
