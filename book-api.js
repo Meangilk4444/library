@@ -49,7 +49,7 @@ app.post('/book/:isbn', (req, res) => {
     res.sendStatus(404);
 });
 
-app.get('/books/:isbn', (req, res) => {
+app.get('/book/:isbn', (req, res) => {
     const isbn = req.params.isbn;
     for( let i = 0; i < books.length; i++){
         let book = books[i];
