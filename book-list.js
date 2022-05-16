@@ -23,7 +23,7 @@ async function loadBooks() {
 
                             <hr>
 
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-danger" onClick="deleteModal(${book.isbn})"> Delete </button>
                             <button types="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                                 Edit
@@ -69,6 +69,17 @@ async function setEditModal(isbn) {
         //setting up the action url for the book
         document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
     }
+}
+
+async function deleteModal(isbn) {
+    console.log("deleting")
+    const response = await fetch(`http://localhost:3000/book/${isbn}`, {
+        method: "DELETE",
+    });
+
+    console.log(response.status); //200
+    //console.log(response.statusText); //ok
+    location.reload(true);
 }
 
 loadBooks();
