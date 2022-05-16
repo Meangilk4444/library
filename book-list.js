@@ -25,7 +25,7 @@ async function loadBooks() {
 
                             <button type="button" class="btn btn-danger">Delete</button>
                             <button types="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#editBookModal" onClick="setEditModal(${book,isbn})">
+                                data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                                 Edit
                             </button>
                         </div>
@@ -44,7 +44,7 @@ async function setEditModal(isbn) {
     });
 
     console.log(response.status); //200
-    console.log(response.statusText); //ok
+    //console.log(response.statusText); //ok
 
     if (response.status === 200){
         let data = await response.text();
