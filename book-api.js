@@ -29,31 +29,30 @@ app.get('/books', (req, res) => {
     res.json(books);
 });
 
-app.post('/book/:isbn', (req, res) => { 
+app.post('/book/:isbn', (req, res) => {
     //reading isbn from url
     const isbn = req.params.isbn;
     const newBook = req.body;
 
     //remove item from the books array
-    for( let i = 0; i < books.length; i++){
+    for (let i = 0; i < books.length; i++) {
         let book = books[i]
 
-        if(book.isbn === isbn) {
+        if (book.isbn === isbn) {
             books[i] = newBook;
-            res.sendStatus(200); //will be logged in console in book-list.js
+            res.sendStatus(200);
             return;
         }
     }
 
-    //sending 404 when not found something 
     res.sendStatus(404);
 });
 
 app.get('/book/:isbn', (req, res) => {
     const isbn = req.params.isbn;
-    for( let i = 0; i < books.length; i++){
+    for (let i = 0; i < books.length; i++) {
         let book = books[i];
-        if(book.isbn === isbn) {
+        if (book.isbn === isbn) {
             res.send(book);
         }
     }

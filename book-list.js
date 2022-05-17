@@ -38,15 +38,19 @@ async function loadBooks() {
     }
 }
 
+function submitEdits() {
+    console.log("submitting")
+    document.getElementById('editForm').submit();
+    setTimeout(location.reload.bind(location), 500);
+}
+
 async function setEditModal(isbn) {
-    const response = await fetch(`http://localhost:3000/book/${isbn}`, {
-        method: "GET",
-    });
+    const response = await fetch(`http://localhost:3000/book/${isbn}`);
 
     console.log(response.status); //200
-    //console.log(response.statusText); //ok
+    console.log(response.statusText); //ok
 
-    if (response.status === 200){
+    if (response.status === 200) {
         let data = await response.text();
         console.log(data);
         const book = JSON.parse(data);
@@ -68,6 +72,7 @@ async function setEditModal(isbn) {
 
         //setting up the action url for the book
         document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
+        document.getElementById('submitButton').addEventListener("click", submitEdits);
     }
 }
 
