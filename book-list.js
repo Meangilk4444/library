@@ -72,7 +72,7 @@ async function setEditModal(isbn) {
 
         //setting up the action url for the book
         document.getElementById('editForm').action = `http://localhost:3000/book/${isbn}`;
-        document.getElementById('submitButton').addEventListener("click", submitEdits);
+        document.getElementById('editBookSubmit').addEventListener("click", submitEdits);
     }
 }
 
