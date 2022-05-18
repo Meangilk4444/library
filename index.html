@@ -19,10 +19,11 @@
         crossorigin="anonymous"></script>
 
     <script src="book-list.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-fill nav-pills mb-3 mainTabBar" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
                 type="button" role="tab" aria-controls="pills-home" aria-selected="true">Book List</button>
@@ -59,32 +60,32 @@
                         <div class="modal-body">
                             <iframe name="iframeEditBook" style="display:none;"></iframe>
                             <form id="editForm" method="POST" target="iframeEditBook">
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">ISBN</label>
                                     <input type="number" class="form-control" name="isbn" id="isbn">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">Title</label>
                                     <input class="form-control" name="title" id="title">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">Author</label>
                                     <input class="form-control" name="author" id="author">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">Published Date</label>
                                     <input type="date" class="form-control" name="publish_date" id="publish_date">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">Publisher</label>
                                     <input class="form-control" name="publisher" id="publisher">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="mb-3">
                                     <label for="exampleInputPassword1">Number Of Pages</label>
                                     <input type="number" class="form-control" name="numOfPages" id="numOfPages">
                                 </div>
@@ -106,37 +107,36 @@
 
                 <iframe name="iframeNewBook" style="display:none;"></iframe>
                 <form action="http://localhost:3000/book" method="POST" id="newBookForm" target="iframeNewBook">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="ISBN">ISBN</label>
                         <input type="number" class="form-control" name="isbn">
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="Title">Title</label>
                         <input class="form-control" name="title">
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="Author">Author</label>
                         <input class="form-control" name="author">
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="Published Date">Published Date</label>
                         <input type="date" class="form-control" name="publish_date">
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="Publisher">Publisher</label>
                         <input class="form-control" name="publisher">
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="Number of Pages">Number of Pages</label>
                         <input type="number" class="form-control" name="numOfPages">
                     </div>
 
-                    <!--Other fields-->
                     <button type="submit" class="btn btn-primary" id="newBookSubmit">Submit</button>
                 </form>
 
